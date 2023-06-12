@@ -6,7 +6,8 @@ function App() {
     <>
       <div className="flex flex-col justify-center items-center min-h-screen">
         {/* cara menambahkan style yang tidak ada di tailwind menggunakan arbitari atau kurung siku seperti contoh textColor dibawah ini */}
-        <ComponentProps textColor="text[#111827]" text="hello guys" />
+        <ComponentProps textColor="text bg-violet-500" text="hello guys"></ComponentProps>
+
         {/* cara menambahkan style */}
         {/* <ComponentProps textColor="text[#111827]" text="hello guys" /> */}
       </div>
