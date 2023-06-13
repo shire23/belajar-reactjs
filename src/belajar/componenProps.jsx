@@ -5,6 +5,10 @@ function Button() {
   return <button className="h-10 px-6 font-semibold rounded-md bg-blue-500  text-white">button</button>;
 }
 
+// function Button2() {
+//   return <button className="h-10 px-6 font-semibold rounded-md bg-red-500  text-white">button</button>;
+// }
+
 // cara ke-2 menggunakan annon function
 // props = argumen/parameter yang bisa dikirim ke komponen lainnya
 // fungsinya agar kita bisa mengkustominasi/mengubah komponen" yang kita buat
@@ -12,6 +16,7 @@ function Button() {
 // dibawah ini cara menggunakan props
 const Button2 = (props) => {
   // {text = "..." } untuk ngasih nilai default
+  // apabila tidak ada nilai akan muncul nilai default titik"
   const { text = "..." } = props;
   return <button className={`h-10 px-6 font-semibold rounded-md ${props.color}  text-white`}>{text}</button>;
 };
@@ -19,6 +24,11 @@ const Button2 = (props) => {
 const Button3 = (props) => {
   const { color = "bg-black", children } = props;
   return <button className={`h-10 px-6 font-semibold rounded-md ${color}  text-black`}>{children}</button>;
+};
+
+const Button4 = (props) => {
+  const { color = "bg-blue" } = props;
+  return <button className={`h-10 px-6 font-semibold rounded-md${props.color} text-black`}>{text}</button>;
 };
 
 const ComponentProps = (props) => {
