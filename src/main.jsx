@@ -5,6 +5,7 @@ import "./index.css";
 import RegisterPage from "./pages/register.jsx";
 import Login from "./components/organism/Login/index.jsx";
 import LoginPage from "./pages/login.jsx";
+import ProductPage from "./pages/product.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/product",
+    element: <ProductPage />,
   },
 ]);
 

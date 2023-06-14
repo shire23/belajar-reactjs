@@ -1,9 +1,11 @@
 import ComponentProps from "./belajar/componenProps";
 import InputForm from "./components/molecules/InputForm";
+import CardProduct from "./components/organism/CardProduct";
 import Login from "./components/organism/Login";
 import Pendaftaran from "./components/organism/Pendaftaran";
 import Register from "./components/organism/Register";
 import AuthLayout from "./components/template/AuthLayout";
+
 // import Button from "./components/atoms/Button";
 
 function App(props) {
@@ -31,6 +33,7 @@ function App(props) {
         <AuthLayout title="Pendaftaran" desc="Lengkapi data dibawah ini!">
           <Pendaftaran />
         </AuthLayout>
+        <CardProduct></CardProduct>
       </div>
     </>
   );
