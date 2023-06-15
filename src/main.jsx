@@ -5,6 +5,8 @@ import "./index.css";
 import RegisterPage from "./pages/register.jsx";
 import Login from "./components/organism/Login/index.jsx";
 import LoginPage from "./pages/login.jsx";
+import ProductPage from "./pages/product.jsx";
+import ProductPageDetail from "./pages/productDetail.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/product",
+    element: <ProductPage />,
+  },
+  {
+    path: "/product-detail",
+    element: <ProductPageDetail />,
   },
 ]);
 
