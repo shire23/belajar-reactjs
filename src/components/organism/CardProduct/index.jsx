@@ -39,14 +39,15 @@ const Body = (props) => {
   );
 };
 
-const Footer = () => {
+const Footer = (props) => {
+  const { price, handleToCart, id } = props;
   return (
-    <>
-      <div className="flex flex-col p-6 text-center font-bold ">
-        <p> price : Rp250.000</p>
-        <Button>Beli</Button>
-      </div>
-    </>
+    <div className="flex flex-col p-6 pb-6 text-center font-bold ">
+      <span> price : {price?.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</span>
+      <Button size="w-full color=bg-blue-500 " onClick={() => handleToCart(id)}>
+        Beli
+      </Button>
+    </div>
   );
 };
 
