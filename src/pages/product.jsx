@@ -19,6 +19,29 @@ const data = [
 ];
 
 export default function ProductPage() {
+  // state / useState = data/penyimpanan/memori yang dipake buat menghandle/menangani komponen ynag berubah-ubah
+  const [cart, setCart] = useState([
+    {
+      id: "1",
+      qty: "1",
+    },
+  ]);
+  const handLogout = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+    window.localtion.href = "/login";
+  };
+
+  // kalo ada id yang sama maka akan menambahkan qty +1
+  const handleToCart = (id) => {
+    // dia akan mappinh dan membongkar itemnya
+    if (cart.find((item) => item.id === id)) {
+      // kalo datanya cuma 1 maka cuma akan di set satu
+    } else {
+      setCart([...cart, { id, qty: 1 }]);
+    }
+  };
+
   return (
     <>
       <div className="flex justify-center items-center min-h-screen">
@@ -38,6 +61,12 @@ export default function ProductPage() {
             <CardProduct.Footer price={product.price} />
           </CardProduct>
         ))}
+      </div>
+      <div className="w-2/6 py-8 px-5">
+        <h1>Cart</h1>
+        <ul>
+          <li key={item.id} className=""></li>
+        </ul>
       </div>
     </>
   );
