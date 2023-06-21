@@ -7,11 +7,12 @@ import Login from "./components/organism/Login/index.jsx";
 import LoginPage from "./pages/login.jsx";
 import ProductPage from "./pages/product.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Counter from "./belajar/Lifecycle/Counter/index.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Counter />,
   },
   {
     path: "/login",

@@ -40,10 +40,18 @@ const Body = (props) => {
 };
 
 const Footer = (props) => {
-  const { price, handleToCart, id } = props;
+  const { price } = props;
   return (
-    <div className="flex flex-col p-6 pb-6 text-center font-bold ">
+    <div className="flex flex-col p-6 text-center font-bold ">
       <span> price : {price?.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</span>
+    </div>
+  );
+};
+
+const Beli = (props) => {
+  const { handleToCart, id } = props;
+  return (
+    <div className="flex flex-col p-6 mt-[-50px] text-center font-bold ">
       <Button size="w-full color=bg-blue-500 " onClick={() => handleToCart(id)}>
         Beli
       </Button>
@@ -54,3 +62,4 @@ const Footer = (props) => {
 CardProduct.Header = Header;
 CardProduct.Body = Body;
 CardProduct.Footer = Footer;
+CardProduct.Beli = Beli;

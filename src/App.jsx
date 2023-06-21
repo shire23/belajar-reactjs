@@ -1,3 +1,4 @@
+import Counter from "./belajar/Lifecycle/Counter";
 import ComponentProps from "./belajar/componenProps";
 import InputForm from "./components/molecules/InputForm";
 import CardProduct from "./components/organism/CardProduct";
@@ -13,18 +14,18 @@ function App(props) {
   return (
     // <> simbol fragment sebagai parent dari suatu komponen
     <>
-      <div className="flex gap-x-10 justify-center items-center min-h-screen">
-        {/* cara menambahkan style yang tidak ada di tailwind menggunakan arbitari atau kurung siku seperti contoh textColor dibawah ini */}
-        {/* <ComponentProps textColor="text bg-violet-500" text="hello guys"></ComponentProps> */}
+      {/* <div className="flex gap-x-10 justify-center items-center min-h-screen"> */}
+      {/* cara menambahkan style yang tidak ada di tailwind menggunakan arbitari atau kurung siku seperti contoh textColor dibawah ini */}
+      {/* <ComponentProps textColor="text bg-violet-500" text="hello guys"></ComponentProps> */}
 
-        {/* cara menambahkan style */}
-        {/* <ComponentProps textColor="text[#111827]" text="hello guys" /> */}
+      {/* cara menambahkan style */}
+      {/* <ComponentProps textColor="text[#111827]" text="hello guys" /> */}
 
-        {/* <Button data={title} /> */}
-        {/* <InputForm /> */}
-        {/* <Login /> */}
+      {/* <Button data={title} /> */}
+      {/* <InputForm /> */}
+      {/* <Login /> */}
 
-        <AuthLayout title="Login" desc="Welcome Guys!">
+      {/* <AuthLayout title="Login" desc="Welcome Guys!">
           <Login />
         </AuthLayout>
         <AuthLayout title="Register" desc="Isi disini!">
@@ -33,8 +34,9 @@ function App(props) {
         <AuthLayout title="Pendaftaran" desc="Lengkapi data dibawah ini!">
           <Pendaftaran />
         </AuthLayout>
-        <CardProduct></CardProduct>
-      </div>
+        <CardProduct></CardProduct> */}
+      {/* </div> */}
+      <Counter />
     </>
   );
 }
