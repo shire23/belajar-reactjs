@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef, useEffect } from "react";
 import Button from "../../atoms/Button";
 import InputForm from "../../molecules/InputForm";
 
@@ -18,9 +18,18 @@ export default function Login() {
     window.location.href = "/product";
   };
 
+  // useRef = hooks yang biasanya dipake buat ngakses DOM,
+  // bedanya sama useState, useRef ngga akan dirender ulang setiap ada perubahan data
+  //  useRef tidak bisa diakses pake props tapi pake forwardref
+
+  const emailRef = useRef(null);
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
+
   return (
     <form onSubmit={handleLogin}>
-      <InputForm label="Email" name="email" type="email" placeholder="masukkan email" />
+      <InputForm label="Email" name="email" type="email" placeholder="masukkan email" ref={emailRef} />
       <InputForm label="Password" type="password" name="password" placeholder="masukkan password" />
       {/* ini adalah eventhandler untuk nampilin console.log yang ke 1 */}
       {/* button onClick  */}

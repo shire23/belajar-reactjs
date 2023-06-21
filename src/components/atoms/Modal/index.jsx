@@ -7,7 +7,7 @@ export default function Modal(props) {
         {showPopup ? (
           <div>
             <div className="flex gap-4 justify-center mt-5">
-              <div className="bg-white p-[120px] rounded border border-black">
+              <div className="bg-violet-500 p-[120px] rounded border border-black">
                 <div className="shadow-lg shadow-indigo-500/40"></div>
                 <button>iya</button>
                 <button
