@@ -10,20 +10,20 @@ export default function AuthLayout(props) {
           <h1 className="text-3xl font-bold mb-2 text-blue-500">{title}</h1>
           <p className="font-medium text-slate-500 mb-4">{desc}</p>
           {children}
-          {/* cara ke 1 */}
+          {/* cara ke 1
           <p className="text-sm mt-5 text-center">{type === "login" ? "ngga punya akun?" : "udah punya akun?"}</p>
           {type === "login" && (
             <Link to="/register" className="text-blue-500 font-bold">
               Daftar
             </Link>
-          )}
-          {type === "register" && (
+          )} */}
+          {/* {type === "register" && (
             <Link to="/login" className="text-blue-500 font-bold">
               Masuk
             </Link>
-          )}
+          )} */}
           {/* cara ke-2 */}
-          {type === "login" ? (
+          {/* {type === "login" ? (
             <p className="text-sm mt-5 text-center">
               ga punya akun?{""}
               <Link to="/register" className="text-blue-500 font-bold">
@@ -37,33 +37,33 @@ export default function AuthLayout(props) {
                 login
               </Link>
             </p>
-          )}
-          <Navigasi type={type} />
+          )} */}
+          {/* <Navigasi type={type} /> */}
         </div>
       </div>
     </div>
   );
 }
 
-// cara ke-3
-const Navigasi = ({ type }) => {
-  if (type === "login") {
-    return (
-      <p className="text-sm mt-5 text-center">
-        belum punya akun cara3?{""}
-        <Link to="/register" className="text-blue-500 font-bold">
-          Daftar
-        </Link>
-      </p>
-    );
-  } else {
-    return (
-      <p className="text-sm mt-5 text-center">
-        udah punya akun cara3?{""}
-        <Link to="/login" className="text-blue-500 font-bold">
-          Masuk
-        </Link>
-      </p>
-    );
-  }
-};
+// // cara ke-3
+// const Navigasi = ({ type }) => {
+//   if (type === "login") {
+//     return (
+//       <p className="text-sm mt-5 text-center">
+//         belum punya akun cara3?{""}
+//         <Link to="/register" className="text-blue-500 font-bold">
+//           Daftar
+//         </Link>
+//       </p>
+//     );
+//   } else {
+//     return (
+//       <p className="text-sm mt-5 text-center">
+//         udah punya akun cara3?{""}
+//         <Link to="/login" className="text-blue-500 font-bold">
+//           Masuk
+//         </Link>
+//       </p>
+//     );
+//   }
+// };

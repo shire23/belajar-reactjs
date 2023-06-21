@@ -13,4 +13,4 @@ const InputForm = forwardRef((props, ref) => {
     </div>
   );
 });
-export default Input;
+export default InputForm;
