@@ -6,6 +6,7 @@ export const useLogin = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    // cek token  kalo ga ada bakaan diarahin ke login
     if (token) {
       setUsername(getUsername(token));
     } else {

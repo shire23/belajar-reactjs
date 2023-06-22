@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../atoms/Button";
+import { Link } from "react-router-dom";
 
 // .map berfungsi membaca data dalam array
 
@@ -15,11 +16,13 @@ export default function CardProduct(props) {
 }
 
 const Header = (props) => {
-  const { image, title, children } = props;
+  const { image, id } = props;
   return (
-    <div className="overflow-y-hidden text-clip h-80">
-      <img src={image} alt="{gambar}" className="px-28 py-10 rounded-t-lg " />
-    </div>
+    <Link to={`/product/${id}`}>
+      <div className="overflow-y-hidden text-clip h-80">
+        <img src={image} alt="{gambar}" className="px-28 py-10 rounded-t-lg " />
+      </div>
+    </Link>
   );
 };
 

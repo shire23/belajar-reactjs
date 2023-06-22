@@ -16,3 +16,18 @@ export const getProduct = (callback) => {
       console.log(err);
     });
 };
+
+export const getDetailProduct = (callback, id) => {
+  axios
+    //   pake method get buat ngambil data API
+    .get(`https://fakestoreapi.com/products/${id}`)
+    //mengirim respon data jika sukses
+    .then((res) => {
+      console.log(res);
+      callback(res.data);
+    })
+    .catch((err) => {
+      // nampilin error kalo tidak benar
+      console.log(err);
+    });
+};
