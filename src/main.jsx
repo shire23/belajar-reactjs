@@ -8,6 +8,7 @@ import LoginPage from "./pages/login.jsx";
 import ProductPage from "./pages/product.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Counter from "./belajar/Lifecycle/Counter/index.jsx";
+import { ProfilePage } from "./pages/profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/product",
     element: <ProductPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
   },
 ]);
 
