@@ -2,12 +2,23 @@ import React, { useEffect, useState } from "react";
 import CardProduct from "../components/organism/CardProduct";
 import Button from "../components/atoms/Button";
 import { getProduct } from "../services/product.service";
+import { getUsername } from "../services/auth.service";
 
 export default function ProductPage() {
   // state = data/penyimpanan private yg dipake buat menghandle komponen yang berubah2
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [data, setData] = useState([]);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setUsername(getUsername(token));
+    } else {
+      window.location.href = "/login";
+    }
+  });
 
   //(componentDidMount) useEffect = sebuah hooks yg dipake buat memanipulasi komponen, fungsinya untuk membuat sinkronisasi antar komponen
   useEffect(() => {
@@ -29,8 +40,11 @@ export default function ProductPage() {
   }, [cart, data]); //cart sbagai depedencies array yg mana untuk memantau perubahan state
 
   const handleLogout = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
+    // localStorage.removeItem("email");
+    // localStorage.removeItem("password");
+    // localStorage.removeItem("token");
+    localStorage.clear();
+    setCart([]);
     window.location.href = "/login";
   };
 
