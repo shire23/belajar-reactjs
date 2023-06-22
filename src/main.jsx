@@ -10,6 +10,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Counter from "./belajar/Lifecycle/Counter/index.jsx";
 import { ProfilePage } from "./pages/profile.jsx";
 import DetailProductPage from "./pages/detailProduct.jsx";
+import MemesPage from "./pages/memes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:id",
     element: <DetailProductPage />,
+  },
+  {
+    path: "/memes",
+    element: <MemesPage />,
   },
 ]);
 
