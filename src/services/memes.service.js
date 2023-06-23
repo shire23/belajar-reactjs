@@ -16,18 +16,3 @@ export const getMemes = (callback) => {
       console.log(err);
     });
 };
-
-// export const getMemes = (callback, id) => {
-//   axios
-//     //   pake method get buat ngambil data API
-//     .get(`https://api.imgflip.com/get_memes${id}`)
-//     //mengirim respon data jika sukses
-//     .then((res) => {
-//       console.log(res);
-//       callback(res.data);
-//     })
-//     .catch((err) => {
-//       // nampilin error kalo tidak benar
-//       console.log(err);
-//     });
-// };

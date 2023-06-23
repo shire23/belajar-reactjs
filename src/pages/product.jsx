@@ -3,21 +3,24 @@ import CardProduct from "../components/organism/CardProduct";
 import Button from "../components/atoms/Button";
 import { getProduct } from "../services/product.service";
 import { useLogin } from "../hooks/useLogin";
+import { useSelector } from "react-redux";
 
 export default function ProductPage() {
   // state = data/penyimpanan private yg dipake buat menghandle komponen yang berubah2
-  const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [data, setData] = useState([]);
+  // const [cart, setCart] = useState([]);
   const username = useLogin();
+  const [data, setData] = useState([]);
+  // buat ngambil data di redux
+  const cart = useSelector((state) => state.cart.data);
+  const [totalPrice, setTotalPrice] = useState(0);
   // const [username, setUsername] = useState("");
 
   // cara memanggil custom hooks
 
   //(componentDidMount) useEffect = sebuah hooks yg dipake buat memanipulasi komponen, fungsinya untuk membuat sinkronisasi antar komponen
-  useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem("cart")) || []);
-  }, []); //depedencies array(array kosong)=untuk menghentikan looping(warning)
+  // useEffect(() => {
+  //   setCart(JSON.parse(localStorage.getItem("cart")) || []);
+  // }, []); //depedencies array(array kosong)=untuk menghentikan looping(warning)
 
   // (componentDidUpdate)
   useEffect(() => {
@@ -42,16 +45,16 @@ export default function ProductPage() {
     window.location.href = "/login";
   };
 
-  const handleToCart = (id) => {
-    // kalo ada id yg sama maka akan menambahkan qty +1
-    if (cart.find((item) => item.id === id)) {
-      //dy akan mapping dan membongkar itemnya
-      setCart(cart.map((item) => (item.id === id ? { ...item, qty: item.qty + 1 } : item)));
-    } else {
-      // kalo data nya cma 1 maka cma akan di set satu
-      setCart([...cart, { id, qty: 1 }]);
-    }
-  };
+  // const handleToCart = (id) => {
+  //   // kalo ada id yg sama maka akan menambahkan qty +1
+  //   if (cart.find((item) => item.id === id)) {
+  //     //dy akan mapping dan membongkar itemnya
+  //     setCart(cart.map((item) => (item.id === id ? { ...item, qty: item.qty + 1 } : item)));
+  //   } else {
+  //     // kalo data nya cma 1 maka cma akan di set satu
+  //     setCart([...cart, { id, qty: 1 }]);
+  //   }
+  // };
 
   //get data using useEffect
   useEffect(() => {
@@ -82,8 +85,8 @@ export default function ProductPage() {
               <CardProduct key={data.id}>
                 <CardProduct.Header image={data.image} id={data.id} />
                 <CardProduct.Body title={data.title}>{data.description}</CardProduct.Body>
-                <CardProduct.Footer price={data.price} id={data.id} handleToCart={handleToCart} />
-                <CardProduct.Beli id={data.id} handleToCart={handleToCart} />
+                <CardProduct.Footer price={data.price} id={data.id} />
+                <CardProduct.Beli id={data.id} />
               </CardProduct>
             ))}
         </div>
@@ -112,7 +115,7 @@ export default function ProductPage() {
                   const datas = data.find((data) => data.id === item.id);
                   return (
                     <tr key={item.id}>
-                      <td className="text-center">{datas.title.substring(0, 20)}</td>
+                      <td className="text-center">{datas.title}</td>
                       <td> {datas.price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</td>
                       <td className="text-center">{item.qty}</td>
                       <td>

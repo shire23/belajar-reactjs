@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "../../atoms/Button";
 import { Link } from "react-router-dom";
-
+import { addToCart } from "../../../redux/slices/cartSlice";
+import { useDispatch } from "react-redux";
 // .map berfungsi membaca data dalam array
 
 export default function CardProduct(props) {
@@ -43,7 +44,7 @@ const Body = (props) => {
 };
 
 const Footer = (props) => {
-  const { price, handleToCart, id } = props;
+  const { price, id } = props;
   return (
     <div className="flex flex-col p-6 text-center font-bold ">
       <span> price : {price?.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}</span>
@@ -52,10 +53,11 @@ const Footer = (props) => {
 };
 
 const Beli = (props) => {
-  const { handleToCart, id } = props;
+  const { id } = props;
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-col p-6 mt-[-50px] text-center font-bold ">
-      <Button size="w-full color=bg-blue-500 " onClick={() => handleToCart(id)}>
+      <Button size="w-full color=bg-blue-500 " onClick={() => dispatch(addToCart({ id, qty: 1 }))}>
         Beli
       </Button>
     </div>
